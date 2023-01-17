@@ -137,3 +137,9 @@ ul {
   #bb {
     
   }
+  .nytHead {
+    margin: auto;
+    text-align: center;
+    font-size: 22px;
+    color: white;
+  }
