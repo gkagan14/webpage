@@ -80,13 +80,24 @@ function displayNYT(data) {
   const bookName = data.results.books[0].title;
   const heading = document.createElement("div");
   heading.innerHTML = bookName;
-  nytDiv.appendChild(heading);
+ // nytDiv.appendChild(heading);
 
   const rankDiv = document.getElementById("rank");
   const rank = data.results.books[0].rank;
   const rankHeading = document.createElement("div");
   rankHeading.innerHTML = rank
-  rankDiv.appendChild(rankHeading);
+ // rankDiv.appendChild(rankHeading);
+
+  let bookRankDiv = document.getElementById("rank")
+  let bookRank =""
+  for (let a = 0; a < data.results.books.length; a++){
+    bookRank = data.results.books[a].rank;
+    console.log(bookRank)
+    let bookRankHead = document.createElement("ul")
+    bookRankHead.innerHTML = bookRank
+    bookRankDiv.appendChild(bookRankHead)
+
+  }
 
   const buyDiv = document.getElementById("bb");
   const buy = data.results.books[0].buy_links[2].name
@@ -94,15 +105,28 @@ function displayNYT(data) {
   buyHeading.innerHTML = buy
   buyDiv.appendChild(buyHeading)
 
-}
 
-//for(let i = 0, l = data.results.length; i < l; i++) {
-  // `i` will take on the values `0`, `1`, `2`,..., i.e. in each iteration
+
+let bookTitleDiv=document.getElementById("nyt")
+let bookTitle = ""
+
+for(let i = 0; i < data.results.books.length; i++) {
+  //`i` will take on the values `0`, `1`, `2`,..., i.e. in each iteration
   // we can access the next element in the array with `data.items[i]`, example:
   // 
-  // var obj = data.items[i];
-  // 
-  // Since each element is an object (in our example),
-  // we can now access the objects properties with `obj.id` and `obj.name`. 
-  // We could also use `data.items[i].id`.
-//}
+  
+   bookTitle = data.results.books[i].title; 
+  console.log(bookTitle)
+  let bookTitleHead = document.createElement("ul")
+  bookTitleHead.innerHTML = bookTitle
+  bookTitleDiv.appendChild(bookTitleHead)
+  //bookTitleDiv.appendChild(document.createTextNode(bookTitle))
+  //bookTitleDiv.appendChild(document.createDocumentFragmentbookTitle)
+}
+//const heading= document.createElement("div")
+//heading.innerHTML = bookTitle;
+//bookTitleDiv.appendChild(document.createTextNode(bookTitle))
+//console.log(bookTitle)
+}
+
+
