@@ -82,6 +82,13 @@ function displayNYT(data) {
   heading.innerHTML = bookName;
  // nytDiv.appendChild(heading);
 
+ const dateDiv = document.getElementById("date")
+ const date = data.results.bestsellers_date
+
+ const dateHead = document.createElement("div")
+ dateHead.innerHTML = date
+ dateDiv.appendChild(dateHead)
+
   const rankDiv = document.getElementById("rank");
   const rank = data.results.books[0].rank;
   const rankHeading = document.createElement("div");
@@ -122,6 +129,23 @@ for(let i = 0; i < data.results.books.length; i++) {
   bookTitleDiv.appendChild(bookTitleHead)
   //bookTitleDiv.appendChild(document.createTextNode(bookTitle))
   //bookTitleDiv.appendChild(document.createDocumentFragmentbookTitle)
+
+/*let bookUrlDiv = document.getElementById("bb")
+let bookUrl = ""
+
+for(let b = 0; b < data.results.books.length; b++){
+
+  bookUrl = data.results.books[b].buy_links[2].url;
+  let bookUrlTitle = document.createElement("a");
+  
+  //let bookUrlTitle = document.createElement("div");
+  bookUrlTitle.innerHTML = 'Buy Here';
+  bookUrlTitle.setAttribute("href", bookUrl)
+  bookUrlTitle.setAttribute("title", "Buy Here")
+  bookUrlDiv.appendChild(bookUrlTitle)
+  console.log(bookUrlTitle)
+}*/
+ 
 }
 //const heading= document.createElement("div")
 //heading.innerHTML = bookTitle;
