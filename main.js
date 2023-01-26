@@ -120,7 +120,7 @@ function displayNYT(data) {
   const buy = data.results.books[0].buy_links[2].name
   const buyHeading = document.createElement("div")
   buyHeading.innerHTML = buy
-  buyDiv.appendChild(buyHeading)*/
+  buyDiv.appendChild(buyHeading)*/ 
 
 
 
