@@ -106,11 +106,21 @@ function displayNYT(data) {
 
   }
 
-  const buyDiv = document.getElementById("bb");
+  let bookPrevRankDiv = document.getElementById("bb");
+  let bookPrevRank = ""
+  for (let p = 0; p < data.results.books.length; p++){
+    bookPrevRank = data.results.books[p].rank_last_week;
+    let bookPrevBookHead = document.createElement("ul")
+    bookPrevBookHead.innerHTML =`(${bookPrevRank})`;
+    bookPrevRankDiv.appendChild(bookPrevBookHead)
+    console.log(bookPrevRank)
+  }
+
+  /*const buyDiv = document.getElementById("bb");
   const buy = data.results.books[0].buy_links[2].name
   const buyHeading = document.createElement("div")
   buyHeading.innerHTML = buy
-  buyDiv.appendChild(buyHeading)
+  buyDiv.appendChild(buyHeading)*/
 
 
 
@@ -135,13 +145,15 @@ let bookUrl = ""
 
 for(let b = 0; b < data.results.books.length; b++){
 
-  bookUrl = data.results.books[b].buy_links[2].url;
+  bookUrl = data.results.books[b].buy_links[0].url;
   let bookUrlTitle = document.createElement("a");
+  //let bookUl = document.createElement("ul")
   
   //let bookUrlTitle = document.createElement("div");
   bookUrlTitle.innerHTML = 'Buy Here';
-  bookUrlTitle.setAttribute("href", bookUrl)
+  //bookUrlTitle.setAttribute("href", bookUrl)
   bookUrlTitle.setAttribute("title", "Buy Here")
+ // bookUl.appendChild(bookUrlTitle)
   bookUrlDiv.appendChild(bookUrlTitle)
   console.log(bookUrlTitle)
 }*/
